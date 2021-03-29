@@ -10,6 +10,7 @@ mix.browserSync({
     stream: true,
 });
 
+mix.copyDirectory('src/images', 'public/images');
 
 mix.js('src/js/main.js', 'js')
     .sass('src/scss/main.scss', 'css')
