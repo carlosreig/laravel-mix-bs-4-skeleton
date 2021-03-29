@@ -1,7 +1,15 @@
 const mix = require('laravel-mix');
 
 mix.disableSuccessNotifications();
-mix.setPublicPath('build');
+mix.setPublicPath('public');
+
+
+mix.browserSync({
+    proxy: 'http://localhost:8080',
+    files: ['public/js/**/*.js', 'public/css/**/*.css'],
+    stream: true,
+});
+
 
 mix.js('src/js/main.js', 'js')
     .sass('src/scss/main.scss', 'css')
@@ -9,4 +17,3 @@ mix.js('src/js/main.js', 'js')
         processCssUrls: false,
     })
     .version();
-
